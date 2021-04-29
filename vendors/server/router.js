@@ -68,6 +68,11 @@ let routerConfig = {
       method: 'get'
     },
     {
+      action: 'del',
+      path: 'del',
+      method: 'get'
+    },
+    {
       action: 'add',
       path: 'add',
       method: 'post'

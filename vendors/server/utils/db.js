@@ -66,7 +66,7 @@ function connect(callback) {
   return db;
 }
 
-yapi.db = model;
+  yapi.db = model;
 
 module.exports = {
   model: model,

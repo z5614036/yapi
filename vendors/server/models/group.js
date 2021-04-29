@@ -75,7 +75,13 @@ class groupModel extends baseModel {
       .select('group_name _id group_desc add_time up_time type custom_field1')
       .exec();
   }
-
+  delGroupById(id) {
+    return this.model
+        .findByIdAndDelete({
+          _id: id
+        })
+        .exec();
+  }
   getGroupById(id) {
     return this.model
       .findOne({

@@ -230,6 +230,26 @@ class groupController extends baseController {
       ctx.body = yapi.commons.resReturn(null)
     }
   }
+  // 删除group
+  async delGroup(ctx){
+    var groupInst = yapi.getInst(groupModel);
+    let privateGroup = await groupInst.getByPrivateUid(this.getUid());
+    if (!privateGroup) {
+      privateGroup = await groupInst.save({
+        uid: this.getUid(),
+        group_name: 'User-' + this.getUid(),
+        add_time: yapi.commons.time(),
+        up_time: yapi.commons.time(),
+        type: 'private'
+      });
+    }
+    if(privateGroup){
+      ctx.body = yapi.commons.resReturn(privateGroup)
+    }else{
+      ctx.body = yapi.commons.resReturn(null)
+    }
+  }
+
 
   /**
    * 添加项目分组成员
@@ -400,6 +420,7 @@ class groupController extends baseController {
    */
   async list(ctx) {
     var groupInst = yapi.getInst(groupModel);
+    console.log(212112)
     let projectInst = yapi.getInst(projectModel);
 
     let privateGroup = await groupInst.getByPrivateUid(this.getUid());
@@ -471,10 +492,10 @@ class groupController extends baseController {
    * @example ./api/group/del.json
    */
   async del(ctx) {
+    console.log(this.getRole(),2121);
     if (this.getRole() !== 'admin') {
       return (ctx.body = yapi.commons.resReturn(null, 401, '没有权限'));
     }
-
     let groupInst = yapi.getInst(groupModel);
     let projectInst = yapi.getInst(projectModel);
     let interfaceInst = yapi.getInst(interfaceModel);
