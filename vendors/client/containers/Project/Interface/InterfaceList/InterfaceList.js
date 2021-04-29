@@ -203,6 +203,17 @@ class InterfaceList extends Component {
 
     const columns = [
       {
+        title: 'id',
+        dataIndex: 'id',
+        key: 'id',
+        width: 10,
+        render: (text, item) => {
+          return (
+            <span className="path">{item._id}</span>
+          );
+        }
+      },
+      {
         title: '接口名称',
         dataIndex: 'title',
         key: 'title',

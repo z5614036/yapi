@@ -9,7 +9,6 @@ yapi.connect = dbModule.connect();
 const mockServer = require('./middleware/mockServer.js');
 require('./plugin.js');
 const websockify = require('koa-websocket');
-
 const websocket = require('./websocket.js');
 const storageCreator = require('./utils/storage')
 require('./utils/notice')

@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import { Home, Group, Project, Follows, AddProject, Login } from './containers/index';
+import { Group, Project, Follows, AddProject, Login } from './containers/index';
 import { Alert } from 'antd';
 import User from './containers/User/User.js';
 import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+// import Footer from './components/Footer/Footer';
 import Loading from './components/Loading/Loading';
 import MyPopConfirm from './components/MyPopConfirm/MyPopConfirm';
 import { checkLoginState } from './reducer/modules/user';
@@ -36,7 +36,7 @@ const alertContent = () => {
 let AppRoute = {
   home: {
     path: '/',
-    component: Home
+    component: Login
   },
   group: {
     path: '/group',
@@ -131,18 +131,7 @@ export default class App extends Component {
                   );
                 })}
               </div>
-              {/* <div className="router-container">
-                <Route exact path="/" component={Home} />
-                <Route path="/group" component={requireAuthentication(Group)} />
-                <Route path="/project/:id" component={requireAuthentication(Project)} />
-                <Route path="/user" component={requireAuthentication(User)} />
-                <Route path="/follow" component={requireAuthentication(Follows)} />
-                <Route path="/add-project" component={requireAuthentication(AddProject)} />
-                <Route path="/login" component={Login} />
-                {/* <Route path="/statistic" component={statisticsPage} /> */}
-              {/* </div> */}
             </div>
-            <Footer />
           </div>
         </Router>
       );
@@ -150,7 +139,7 @@ export default class App extends Component {
     return r;
   };
 
-  render() {
+  render(){
     return this.route(this.props.loginState);
   }
 }

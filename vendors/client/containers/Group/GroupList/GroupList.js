@@ -24,7 +24,7 @@ const tip = (
   <div className="title-container">
     <h3 className="title">欢迎使用 YApi ~</h3>
     <p>
-      这里的 <b>“个人空间2121”</b>{' '}
+      这里的 <b>“个人空间”</b>{' '}
       是你自己才能看到的分组，你拥有这个分组的全部权限，可以在这个分组里探索 YApi 的功能。
     </p>
   </div>
@@ -207,6 +207,10 @@ export default class GroupList extends Component {
     }
   }
 
+  deleteData = data => {
+    console.log(data, 'data')
+  };
+
   render() {
     const { currGroup } = this.props;
     return (
@@ -216,7 +220,7 @@ export default class GroupList extends Component {
           <div className="curr-group">
             <div className="curr-group-name">
               <span className="name">{currGroup.group_name}</span>
-              <Tooltip title="添加分组">
+              <Tooltip title="添加产品">
                 <a className="editSet">
                   <Icon className="btn" type="folder-add" onClick={this.showModal} />
                 </a>
@@ -271,6 +275,18 @@ export default class GroupList extends Component {
                   <Menu.Item key={`${group._id}`} className="group-item">
                     <Icon type="folder-open" />
                     {group.group_name}
+                    <div className="btns">
+                      <Tooltip title="删除">
+                        <Icon
+                          type="delete"
+                          className="interface-delete-icon"
+                           onClick={e => {
+                            e.stopPropagation();
+                            this.deleteData(group._id);
+                          }}
+                        />
+                      </Tooltip>
+                    </div>
                   </Menu.Item>
                 );
               }
@@ -279,7 +295,7 @@ export default class GroupList extends Component {
         </div>
         {this.state.addGroupModalVisible ? (
           <Modal
-            title="添加分组"
+            title="添加产品"
             visible={this.state.addGroupModalVisible}
             onOk={this.addGroup}
             onCancel={this.hideModal}
@@ -287,10 +303,10 @@ export default class GroupList extends Component {
           >
             <Row gutter={6} className="modal-input">
               <Col span="5">
-                <div className="label">分组名：</div>
+                <div className="label">产品名称：</div>
               </Col>
               <Col span="15">
-                <Input placeholder="请输入分组名称" onChange={this.inputNewGroupName} />
+                <Input placeholder="请输入产品名称" onChange={this.inputNewGroupName} />
               </Col>
             </Row>
             <Row gutter={6} className="modal-input">
@@ -298,12 +314,12 @@ export default class GroupList extends Component {
                 <div className="label">简介：</div>
               </Col>
               <Col span="15">
-                <TextArea rows={3} placeholder="请输入分组描述" onChange={this.inputNewGroupDesc} />
+                <TextArea rows={3} placeholder="请输入产品描述" onChange={this.inputNewGroupDesc} />
               </Col>
             </Row>
             <Row gutter={6} className="modal-input">
               <Col span="5">
-                <div className="label">组长：</div>
+                <div className="label">产品经理：</div>
               </Col>
               <Col span="15">
                 <UsernameAutoComplete callbackState={this.onUserSelect} />

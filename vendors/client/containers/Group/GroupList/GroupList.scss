@@ -35,7 +35,7 @@
       .editSet{
         color: rgba(255, 255, 255, 0.85);
         &:hover{
-          color: #2395f1;
+          color: #fff;
         }
       }
       .ant-dropdown-link{
@@ -95,11 +95,17 @@
       color: $color-white;
       background-color: $color-bg-dark;
     }
+    .ant-input:hover {
+      border-color: #fff;
+    }
     .ant-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
       color: $color-white-secondary;
     }
     .ant-input-suffix {
       color: $color-white;
+    }
+    .anticon{
+      color:#fff;
     }
   }
   .group-list {
@@ -114,7 +120,7 @@
       font-size: 14px;
     }
     .group-item:hover {
-      // background: #34495E;
+      background: #f0fbff;
       // color: $color-white;
     }
     .group-item.selected {
@@ -145,3 +151,28 @@
     }
   }
 }
+.interface-delete-icon {
+    position: relative;
+    right: 0;
+    float: right;
+    line-height: 25px;
+    width: 24px;
+    font-weight: bold;
+  }
+ .ant-menu-item.group-item .btns {
+   background-color: #eef7fe;
+   position: absolute;
+   top: 50%;
+   right: 0;
+   transform: translateY(-60%);
+   transition: all 0.2s;
+   display:none;
+ }
+  .interface-delete-icon:hover {
+    color: #2395f1;
+  }
+  .ant-menu-item.group-item.ant-menu-item-active {
+    .btns {
+      display: block;
+    }
+  }

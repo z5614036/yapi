@@ -5,7 +5,7 @@
 }
 
 .user-menu.ant-menu.ant-menu-dark .ant-menu-item-selected {
-  background: #32363a;
+  background: #4795ed;
   color: rgba(255, 255, 255, 0.67);
 }
 .user-menu.ant-menu-dark .ant-menu-item-selected > a {
@@ -16,6 +16,7 @@
 .header-box {
   height: .56rem;
   line-height: .56rem;
+  background: #4795ed;
   padding: 0;
   .logo {
     position: relative;
@@ -23,8 +24,7 @@
     line-height: .56rem;
     height: .56rem;
     width: 56px;
-    border-right: 1px solid #55616d;
-    border-left: 1px solid #55616d;
+    //dropdown-link
     background-color: inherit;
     transition: all .2s;
     &:hover{
@@ -33,6 +33,13 @@
     .href {
       text-decoration: none;
       display: block;
+      text-align:center;
+      color:#fff;
+      font-weight:bold;
+      font-size:16px;
+      img {
+        margin-top:-6px;
+      }
     }
     .logo-name {
       color: $color-white;
@@ -97,14 +104,14 @@
       float: left;
       font-size: .14rem;
       cursor: pointer;
-      color: #ccc;
+      color: #fff;
       margin-left: .16rem;
       transition: color .2s;
       & a {
         color: #ccc;
       }
       .dropdown-link {
-        color: #ccc;
+        color: #fff;
         transition: color .2s;
         // .ant-avatar-image{
         //   margin-bottom: -10px;
@@ -116,7 +123,7 @@
           margin-bottom: -10px;
           display: inline-block;
           text-align: center;
-          background: #ccc;
+          // background: #fff;
           color: #fff;
           white-space: nowrap;
           position: relative;
@@ -136,6 +143,9 @@
       }
       .anticon.active {
         color: #2395f1;
+      }
+      .anticon:before {
+        color: #fff;
       }
       &:hover{
         .dropdown-link {
